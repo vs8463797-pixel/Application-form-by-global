@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Application Portal - GLOBAL BOOK PUBLICATIONS</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background: linear-gradient(135deg, #f8fafc 0%, #edf2f7 100%);
+            color: #2d3748;
+            padding: 30px 20px;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 750px;
+            background: #ffffff;
+            margin: 0 auto;
+            padding: 45px;
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+            border-top: 6px solid #e11d48; /* Sophisticated Professional Rose/Pink */
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 35px;
+        }
+
+        .logo-container img {
+            width: 90px;
+            height: 90px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 15px;
+            border: 3px solid #e11d48;
+            box-shadow: 0 4px 12px rgba(225, 29, 72, 0.2);
+        }
+
+        /* Professional Glow & Fade Animation for Company Name */
+        @keyframes companyGlow {
+            0% { opacity: 0.85; text-shadow: 0 0 2px rgba(225, 29, 72, 0.2); }
+            50% { opacity: 1; text-shadow: 0 0 10px rgba(225, 29, 72, 0.4), 0 0 20px rgba(30, 41, 59, 0.15); }
+            100% { opacity: 0.85; text-shadow: 0 0 2px rgba(225, 29, 72, 0.2); }
+        }
+
+        .company-name {
+            font-size: 30px;
+            font-weight: 800;
+            background: linear-gradient(135deg, #1e293b, #e11d48);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            margin-bottom: 8px;
+            animation: companyGlow 3.5s infinite ease-in-out;
+        }
+
+        .portal-subtitle {
+            font-size: 16px;
+            color: #64748b;
+            font-weight: 500;
+        }
+
+        .exclusive-badge {
+            background-color: #fff1f2;
+            color: #be123c;
+            padding: 12px 18px;
+            border-radius: 12px;
+            text-align: center;
+            font-weight: 600;
+            font-size: 15px;
+            margin-bottom: 30px;
+            border: 1px solid #fecdd3;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+
+        .form-section {
+            margin-bottom: 22px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: #334155;
+            font-size: 14px;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        input[type="tel"],
+        input[type="file"],
+        select,
+        textarea {
+            width: 100%;
+            padding: 13px 15px;
+            border: 2px solid #e2e8f0;
+            border-radius: 10px;
+            font-size: 15px;
+            color: #1e293b;
+            background-color: #f8fafc;
+            transition: all 0.3s ease;
+        }
+
+        input:focus, select:focus, textarea:focus {
+            border-color: #e11d48;
+            background-color: #ffffff;
+            outline: none;
+            box-shadow: 0 0 0 4px rgba(225, 29, 72, 0.12);
+        }
+
+        textarea {
+            resize: vertical;
+            height: 95px;
+        }
+
+        .row {
+            display: flex;
+            gap: 20px;
+        }
+
+        .col {
+            flex: 1;
+        }
+
+        .selection-box {
+            background: #fff5f6;
+            padding: 18px;
+            border-radius: 12px;
+            border: 2px solid #fecdd3;
+        }
+
+        .selection-option {
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+        }
+
+        .selection-option:last-child {
+            margin-bottom: 0;
+        }
+
+        .selection-option input {
+            margin-right: 12px;
+            accent-color: #e11d48;
+            transform: scale(1.25);
+            cursor: pointer;
+        }
+
+        .selection-option label {
+            margin-bottom: 0;
+            font-weight: 500;
+            color: #4b5563;
+            cursor: pointer;
+        }
+
+        .note {
+            font-size: 12px;
+            color: #64748b;
+            margin-top: 6px;
+        }
+
+        /* Continuous Blinking & Pulsing Animation for Submit Button */
+        @keyframes popupPulse {
+            0% {
+                transform: scale(1);
+                box-shadow: 0 0 0 0 rgba(225, 29, 72, 0.7);
+            }
+            70% {
+                transform: scale(1.02);
+                box-shadow: 0 0 0 14px rgba(225, 29, 72, 0);
+            }
+            100% {
+                transform: scale(1);
+                box-shadow: 0 0 0 0 rgba(225, 29, 72, 0);
+            }
+        }
+
+        .submit-btn {
+            width: 100%;
+            background: linear-gradient(135deg, #e11d48 0%, #be123c 100%);
+            color: white;
+            padding: 16px;
+            border: none;
+            border-radius: 12px;
+            font-size: 17px;
+            font-weight: 700;
+            cursor: pointer;
+            text-transform: uppercase;
+            letter-spacing: 1.2px;
+            margin-top: 25px;
+            animation: popupPulse 1.6s infinite ease-in-out;
+            transition: opacity 0.3s;
+        }
+
+        .submit-btn:hover {
+            opacity: 0.92;
+        }
+
+        @media (max-width: 650px) {
+            .row {
+                flex-direction: column;
+                gap: 0;
+            }
+            .container {
+                padding: 20px;
+                margin: 10px;
+            }
+        }
+    </style>
+    <script>
+        // Dynamic District Populate Script based on Selected State
+        function updateDistricts() {
+            const stateSelect = document.getElementById('state');
+            const districtSelect = document.getElementById('district');
+            const selectedState = stateSelect.value;
+
+            // Clear previous options
+            districtSelect.innerHTML = '<option value="">-- Select District --</option>';
+
+            const districtsData = {
+                "Andhra Pradesh": ["Visakhapatnam", "Vijayawada", "Guntur", "Tirupati", "Kurnool", "Nellore", "Rajahmundry", "Kadapa"],
+                "Arunachal Pradesh": ["Itanagar", "Tawang", "Ziro", "Pasighat", "Namsai", "Bomdila"],
+                "Assam": ["Guwahati", "Silchar", "Dibrugarh", "Jorhat", "Nagaon", "Tinsukia", "Tezpur"],
+                "Bihar": ["Patna", "Gaya", "Muzaffarpur", "Bhagalpur", "Darbhanga", "Purnia", "Ara", "Begusarai", "Nalanda"],
+                "Chhattisgarh": ["Raipur", "Bhilai", "Bilaspur", "Korba", "Durg", "Raigarh", "Jagdalpur", "Ambikapur"],
+                "Goa": ["Panaji", "Margao", "Mapusa", "Ponda", "Vasco da Gama"],
+                "Gujarat": ["Ahmedabad", "Surat", "Vadodara", "Rajkot", "Bhavnagar", "Jamnagar", "Gandhinagar", "Anand"],
+                "Haryana": ["Gurugram", "Faridabad", "Panipat", "Ambala", "Hisar", "Rohtak", "Karnal", "Sonipat"],
+                "Himachal Pradesh": ["Shimla", "Manali", "Dharamshala", "Solan", "Mandi", "Kullu", "Kangra"],
+                "Jharkhand": ["Ranchi", "Jamshedpur", "Dhanbad", "Bokaro", "Deoghar", "Hazaribagh", "Giridih"],
+                "Karnataka": ["Bengaluru", "Mysuru", "Hubballi-Dharwad", "Mangaluru", "Belagavi", "Kalaburagi", "Shivamogga"],
+                "Kerala": ["Thiruvananthapuram", "Kochi", "Kozhikode", "Thrissur", "Kollam", "Alappuzha", "Palakkad"],
+                "Madhya Pradesh": ["Bhopal", "Indore", "Gwalior", "Jabalpur", "Ujjain", "Sagar", "Dewas", "Satna", "Rewa"],
+                "Maharashtra": ["Mumbai", "Pune", "Nagpur", "Nashik", "Aurangabad", "Thane", "Solapur", "Kolhapur", "Amravati"],
+                "Manipur": ["Imphal", "Thoubal", "Bishnupur", "Churachandpur", "Senapati"],
+                "Meghalaya": ["Shillong", "Tura", "Jowai", "Nongpoh"],
+                "Mizoram": ["Aizawl", "Lunglei", "Champhai", "Serchhip"],
+                "Nagaland": ["Kohima", "Dimapur", "Mokokchung", "Tuensang", "Wokha"],
+                "Odisha": ["Bhubaneswar", "Cuttack", "Rourkela", "Berhampur", "Sambalpur", "Puri", "Balasore"],
+                "Punjab": ["Ludhiana", "Amritsar", "Jalandhar", "Patiala", "Bathinda", "Mohali", "Pathankot"],
+                "Rajasthan": ["Jaipur", "Jodhpur", "Udaipur", "Kota", "Ajmer", "Bikaner", "Alwar", "Bhilwara", "Sikar"],
+                "Sikkim": ["Gangtok", "Namchi", "Gyalshing", "Mangan"],
+                "Tamil Nadu": ["Chennai", "Coimbatore", "Madurai", "Tiruchirappalli", "Salem", "Tirunelveli", "Vellore", "Erode"],
+                "Telangana": ["Hyderabad", "Warangal", "Nizamabad", "Karimnagar", "Khammam", "Ramagundam"],
+                "Tripura": ["Agartala", "Udaipur", "Dharmanagar", "Kailashahar"],
+                "Uttar Pradesh": ["Lucknow", "Kanpur", "Varanasi", "Agra", "Prayagraj", "Meerut", "Ghaziabad", "Noida", "Bareilly", "Aligarh", "Gorakhpur"],
+                "Uttarakhand": ["Dehradun", "Haridwar", "Roorkee", "Haldwani", "Nainital", "Rishikesh"],
+                "West Bengal": ["Kolkata", "Howrah", "Durgapur", "Asansol", "Siliguri", "Kharagpur", "Darjeeling"],
+                "Andaman and Nicobar Islands": ["Port Blair", "Car Nicobar", "Mayabunder"],
+                "Chandigarh": ["Chandigarh"],
+                "Dadra and Nagar Haveli and Daman and Diu": ["Daman", "Diu", "Silvassa"],
+                "Delhi": ["New Delhi", "North Delhi", "South Delhi", "East Delhi", "West Delhi", "Central Delhi", "Dwarka"],
+                "Jammu and Kashmir": ["Srinagar", "Jammu", "Anantnag", "Baramulla", "Udhampur", "Kathua"],
+                "Ladakh": ["Leh", "Kargil"],
+                "Lakshadweep": ["Kavaratti", "Agatti", "Minicoy"],
+                "Puducherry": ["Puducherry", "Karaikal", "Mahe", "Yanam"]
+            };
+
+            if (districtsData[selectedState]) {
+                districtsData[selectedState].forEach(function(district) {
+                    const opt = document.createElement('option');
+                    opt.value = district;
+                    opt.textContent = district;
+                    districtSelect.appendChild(opt);
+                });
+            }
+        }
+    </script>
+</head>
+<body>
+
+<div class="container">
+    <div class="header">
+        <div class="logo-container">
+            <!-- Company Logo image reference set to GBP.jpg -->
+            <img src="GBP.jpg" alt="Company Logo" onerror="this.style.display='none'">
+        </div>
+        <div class="company-name">GLOBAL BOOK PUBLICATIONS</div>
+        <div class="portal-subtitle">Official Exclusive Applicant Registration Portal</div>
+    </div>
+
+    <div class="exclusive-badge">
+        ✨ <strong>Exclusive Notification:</strong> This application portal is strictly for Women & Girls only. ✨
+    </div>
+
+    <!-- Formspree Endpoint Integration -->
+    <form action="https://formspree.io/f/moejeeaz" method="POST" enctype="multipart/form-data">
+        
+        <!-- 1. Full Name -->
+        <div class="form-section">
+            <label for="fullname">Full Name:</label>
+            <input type="text" id="fullname" name="Full_Name" required placeholder="Enter your full name">
+        </div>
+
+        <!-- 2. Father's / Husband's Name -->
+        <div class="form-section">
+            <label for="guardian_name">Father's / Husband's Name:</label>
+            <input type="text" id="guardian_name" name="Guardian_Name" required placeholder="Enter father's or husband's name">
+        </div>
+
+        <div class="row">
+            <!-- 3. Gmail ID -->
+            <div class="col">
+                <div class="form-section">
+                    <label for="email">Gmail Address:</label>
+                    <input type="email" id="email" name="Email" required placeholder="yourname@gmail.com">
+                </div>
+            </div>
+            <!-- 5. WhatsApp Number -->
+            <div class="col">
+                <div class="form-section">
+                    <label for="whatsapp">WhatsApp Number:</label>
+                    <input type="tel" id="whatsapp" name="WhatsApp_Number" required placeholder="10-digit mobile number" maxlength="10">
+                </div>
+            </div>
+        </div>
+
+        <!-- 4. Educational Qualification Selection -->
+        <div class="form-section">
+            <label for="qualification">Educational Qualification:</label>
+            <select id="qualification" name="Educational_Qualification" required>
+                <option value="">-- Select Your Minimum Qualification --</option>
+                <option value="12th Pass">12th Pass</option>
+                <option value="Graduation">Graduation (BA / BSc / BCom / BTech / Other)</option>
+                <option value="Post Graduation">Post Graduation (MA / MSc / MCom / MBA / Other)</option>
+                <option value="Diploma / Other">Diploma / Other Qualifications</option>
+            </select>
+        </div>
+
+        <!-- 6. State Select -->
+        <div class="row">
+            <div class="col">
+                <div class="form-section">
+                    <label for="state">State:</label>
+                    <select id="state" name="State" required onchange="updateDistricts()">
+                        <option value="">-- Select State --</option>
+                        <option value="Andhra Pradesh">Andhra Pradesh</option>
+                        <option value="Arunachal Pradesh">Arunachal Pradesh</option>
+                        <option value="Assam">Assam</option>
+                        <option value="Bihar">Bihar</option>
+                        <option value="Chhattisgarh">Chhattisgarh</option>
+                        <option value="Goa">Goa</option>
+                        <option value="Gujarat">Gujarat</option>
+                        <option value="Haryana">Haryana</option>
+                        <option value="Himachal Pradesh">Himachal Pradesh</option>
+                        <option value="Jharkhand">Jharkhand</option>
+                        <option value="Karnataka">Karnataka</option>
+                        <option value="Kerala">Kerala</option>
+                        <option value="Madhya Pradesh">Madhya Pradesh</option>
+                        <option value="Maharashtra">Maharashtra</option>
+                        <option value="Manipur">Manipur</option>
+                        <option value="Meghalaya">Meghalaya</option>
+                        <option value="Mizoram">Mizoram</option>
+                        <option value="Nagaland">Nagaland</option>
+                        <option value="Odisha">Odisha</option>
+                        <option value="Punjab">Punjab</option>
+                        <option value="Rajasthan">Rajasthan</option>
+                        <option value="Sikkim">Sikkim</option>
+                        <option value="Tamil Nadu">Tamil Nadu</option>
+                        <option value="Telangana">Telangana</option>
+                        <option value="Tripura">Tripura</option>
+                        <option value="Uttar Pradesh">Uttar Pradesh</option>
+                        <option value="Uttarakhand">Uttarakhand</option>
+                        <option value="West Bengal">West Bengal</option>
+                        <option value="Andaman and Nicobar Islands">Andaman and Nicobar Islands</option>
+                        <option value="Chandigarh">Chandigarh</option>
+                        <option value="Dadra and Nagar Haveli and Daman and Diu">Dadra and Nagar Haveli and Daman and Diu</option>
+                        <option value="Delhi">Delhi</option>
+                        <option value="Jammu and Kashmir">Jammu and Kashmir</option>
+                        <option value="Ladakh">Ladakh</option>
+                        <option value="Lakshadweep">Lakshadweep</option>
+                        <option value="Puducherry">Puducherry</option>
+                    </select>
+                </div>
+            </div>
+            <!-- 7. District (Populates State-wise) -->
+            <div class="col">
+                <div class="form-section">
+                    <label for="district">District:</label>
+                    <select id="district" name="District" required>
+                        <option value="">-- First Select State --</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <!-- 8. Pin Code -->
+            <div class="col">
+                <div class="form-section">
+                    <label for="pincode">Pin Code:</label>
+                    <input type="text" id="pincode" name="Pin_Code" required placeholder="6-digit pin code" maxlength="6">
+                </div>
+            </div>
+            <div class="col"></div>
+        </div>
+
+        <!-- 9. Full Address -->
+        <div class="form-section">
+            <label for="address">Full Address:</label>
+            <textarea id="address" name="Full_Address" required placeholder="House No, Street, Locality, Landmark"></textarea>
+        </div>
+
+        <!-- 10. ID Number (Compulsory) & 11. ID Document Upload (Optional) -->
+        <div class="row">
+            <div class="col">
+                <div class="form-section">
+                    <label for="id_no">ID Number (Compulsory):</label>
+                    <input type="text" id="id_no" name="ID_Number" required placeholder="Enter ID number" maxlength="12">
+                </div>
+            </div>
+            <div class="col">
+                <div class="form-section">
+                    <label for="id_proof">ID Document Upload (Optional):</label>
+                    <input type="file" id="id_proof" name="ID_Document" accept="image/*,.pdf">
+                </div>
+            </div>
+        </div>
+
+        <!-- 12. Payment UTR Number Option -->
+        <div class="form-section">
+            <label for="utr">Payment UTR / Transaction ID:</label>
+            <input type="text" id="utr" name="Payment_UTR_Number" required placeholder="Enter your transaction UTR number">
+            <div class="note">Please ensure you complete the processing payment prior to submission.</div>
+        </div>
+
+        <!-- 13. Select Project Plan (1st plan, 2nd plan, 3rd plan) -->
+        <div class="form-section">
+            <label>Select Project Plan (Choose any 1):</label>
+            <div class="selection-box">
+                <div class="selection-option">
+                    <input type="radio" id="plan1" name="Selected_Project_Plan" value="1st Plan: E-Book Content Editing & Proofreading" required>
+                    <label for="plan1">1st Plan: E-Book Content Editing & Proofreading</label>
+                </div>
+                <div class="selection-option">
+                    <input type="radio" id="plan2" name="Selected_Project_Plan" value="2nd Plan: Digital Manuscript Typing & Formatting">
+                    <label for="plan2">2nd Plan: Digital Manuscript Typing & Formatting</label>
+                </div>
+                <div class="selection-option">
+                    <input type="radio" id="plan3" name="Selected_Project_Plan" value="3rd Plan: Online Book Promotion & Data Management">
+                    <label for="plan3">3rd Plan: Online Book Promotion & Data Management</label>
+                </div>
+            </div>
+        </div>
+
+        <!-- 14. Blinking / Pop-up Submit Application Button -->
+        <button type="submit" class="submit-btn">Submit Application</button>
+
+    </form>
+</div>
+
+</body>
+</html>
